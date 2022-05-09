@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <body>
+        <div class="main container">
+            <div class="container bg-light text-dark py-5">
+                <div class="row text-center">
+                    {% for item in items %}
+                        <div class="col-md-4 text-center">
+                            <ul>
+                                <li>
+                                    <h2>{{ item.name }}</h2>
+                                </li>
+                                <li>
+                                    <img src="{{ url_for('static', filename=item.url) }}" width=300 height=400 class="py-3">
+                                </li>
+                                <li>
+                                    <a href="items/{{item.name}}" class="btn btn-outline-dark py-3">Купить</a>
+                                </li>
+                            </ul>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
+{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='mystyle_1.css') }}">
+        <title>Главная</title>
+
+        <style>
+            .text
+            {
+                text-align:  center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <a class="btn btn-outline-* align_left" href="/index" role="button"><img src="{{ url_for('static', filename='sofa.png') }}"></a>
+            <a class="btn btn-outline-* align_right" href="/catalog" role="button">Каталог</a>
+            <a class="btn btn-outline-*" href="/reviews" role="button">Отзывы</a>
+            {% if session.login %}
+                <a class="btn btn-outline-* .align-middle" href="/{{session.login}}" role="button">Профиль + корзина</a>
+                <a class="btn btn-outline-* .align-middle" href="/logout" role="button">Выйти</a>
+            {% else %}
+                <a class="btn btn-outline-* align_right" href="/login" role="button">Войти</a>
+            {% endif%}
+        </header>
+        
+        <div class="container">
+            {% for category, mesg in get_flashed_messages(with_categories=true) %}
+                {% if category == 'warning' %}
+                    <h6 class="text-center" style="color: red;">{{ mesg }}</h1>
+                {% else %}
+                    <h6 class="text-center" style="color: green;">{{ mesg }}</h1>
+                {% endif %}
+            {% endfor %}    
+        </div>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

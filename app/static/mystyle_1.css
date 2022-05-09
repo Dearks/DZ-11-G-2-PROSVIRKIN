@@ -1,0 +1,83 @@
+.link 
+{
+    color: black;
+    text-decoration-line: none;
+}
+
+.main {
+    min-height: 50vh;
+    height: 100%
+}
+
+a
+{
+    color: black;
+    text-decoration-line: none;
+}
+
+.pictures img
+{
+    outline: black;
+    outline-style: groove;
+    outline-width: 2px;
+    outline-color: rgb(0, 0, 0);
+}
+
+.color_black
+{
+    color:rgb(0, 0, 0)
+}
+
+header 
+{
+
+    width: 100%;
+    background: rgb(89, 89, 105);/*#666;*/
+    height: 6%;
+    min-height: 4.5vh;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container
+{
+    float: center;
+    width: 100%;
+    /*height: 88%;*/
+}
+
+footer 
+{
+    bottom:0;
+    width: 100%;
+    background: rgb(89, 89, 105);/*#666;*/
+    height: 6%;
+    min-height: 5vh;
+}
+
+.align_right
+{
+    float: right;
+}
+
+.align_center
+{
+    float: center;
+}
+
+@media screen and (max-width: 900px) {
+    body {
+    background-color: #333333cc;
+    color: #ffffff;
+    }
+}
+
+.outline 
+{
+    outline-style: outset;
+    outline-width: 3px;
+    outline-color: rgb(0, 0, 0);
+    outline-offset: 10px;
+  }

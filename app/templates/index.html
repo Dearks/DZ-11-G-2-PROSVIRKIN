@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+    <body>
+        <div class="main">
+            <div class="container" align="center">
+                <h1>Добро пожаловать в наш магазин диванов!</h1>    
+                <p>У нас вам точно захочется присесть!</p>
+            </div>
+
+            <div class="img-div" align="center">
+                <img src="{{ url_for('static', filename='living-room-2732939_1920.jpg') }}" width="800">
+            </div>
+        </div>
+    </body>
+{% endblock %}

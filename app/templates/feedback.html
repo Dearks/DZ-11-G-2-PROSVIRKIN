@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <body>
+        <div class="text main">
+            <form method="POST">
+                <fieldset>
+                    <legend>Оставьте отзыв</legend>
+                    Email<input type="email" size="30" placeholder="Email" name="email"class="form-control"><br>
+                    Ваше Имя<input type="text" size="30" placeholder="Ваше Имя" name="name" class="form-control"><br>
+                    Текст отзыва<input type="text" size="30" placeholder="Красивое" name="feedback" class="form-control"><br>
+                    <button type="submit" class="btn btn-outline-dark">Сохранить</button><br>
+                </fieldset>
+            </form>
+
+            {% for review in feedback %}
+                <br>
+                <h2>{{review.name}}<h2>
+                <h4>{{review.text}}</h4>
+            {% endfor%}
+        </div>
+    </body>
+{% endblock %}

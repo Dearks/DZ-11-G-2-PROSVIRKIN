@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="main">
+        <body>
+            <div class="container bg-light text-dark my-3 py-5">
+                <div class="row">
+                    <div class="col-md">
+                        <img width="90%" alt="Коста Рика" src="{{ url_for('static', filename=item.url) }}"  title="Коста Рика" style="outline: 1px solid #666;">
+                    </div>
+                    <div class="col-md">
+                        <h3>{{ item.name }}</h3>
+                        <ul>
+                            <li>
+                                <h6 class="py-1">{{ item.description }}</h6>
+                            </li>
+                            <li>В наличии {{ item.amount }} шт.</li>
+                        </ul>
+                        <h5 class="pb-1">1шт - {{ item.price }} руб.</h5>
+                        <form method="POST">
+                            <div class="input-group quantity_goods" style="margin: 5px 0px 5px 0px;">
+                                <input type="number" step="1" min="1" max="{{ item.amount }}" id="num_count" name="quantity" value="1" title="Qty">
+                                <input type="button" value="-" id="button_minus">
+                                <input type="button" value="+" id="button_plus">
+                            </div>
+                            <button type="submit" class="btn btn-outline-dark py-3">Купить!</button>
+                        </form>
+                        <script>
+                            var numCount = document.getElementById('num_count');
+                            var plusBtn = document.getElementById('button_plus');
+                            var minusBtn = document.getElementById('button_minus');
+                            plusBtn.onclick = function() {
+                                var qty = parseInt(numCount.value);
+                                qty = qty + 1;
+                                numCount.value = qty;
+                            }
+                            minusBtn.onclick = function() {
+                                var qty = parseInt(numCount.value);
+                                qty = qty - 1;
+                                numCount.value = qty;
+                            }   
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </div>
+{% endblock %}
